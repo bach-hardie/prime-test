@@ -1,4 +1,4 @@
-var buildTable, firstNPrimes, getPrimes, makeTable;
+var buildTable, firstNPrimes, generate, getPrimes, makeTable;
 
 getPrimes = function(n) {
   var array, fn, i, k, p, primes, ref, sqrt_limit, x;
@@ -114,4 +114,11 @@ makeTable = function(str) {
   n = parseInt(str);
   primes = firstNPrimes(n);
   return buildTable(primes);
+};
+
+generate = function() {
+  var input, output;
+  input = document.getElementById("input").value;
+  output = makeTable(input);
+  return document.getElementById("output").innerHTML = output;
 };

@@ -75,3 +75,8 @@ makeTable = (str) ->
   n = parseInt str
   primes = firstNPrimes n
   return buildTable primes
+
+generate = () ->
+  input = document.getElementById("input").value
+  output = makeTable input
+  document.getElementById("output").innerHTML = output
