@@ -75,3 +75,12 @@ describe "buildTable", () ->
         </tr>
       </table>"
     expect(buildTable(primes).replace(/\s/g, "")).toEqual(table.replace(/\s/g, "") )
+
+describe "makeTable", () ->
+  it "should take input, get those primes, and make an html table", () ->
+    expect(makeTable(n.toString())).toEqual(buildTable(firstNPrimes(n))) for n in [1..10]
+  it "should return a formatted error message for invalid inputs", () ->
+    expect(makeTable('0')).toEqual('<h1>Error: please input integer between 1 and 10</h1>')
+    expect(makeTable('-10')).toEqual('<h1>Error: please input integer between 1 and 10</h1>')
+    expect(makeTable('5.75')).toEqual('<h1>Error: please input integer between 1 and 10</h1>')
+    expect(makeTable('five')).toEqual('<h1>Error: please input integer between 1 and 10</h1>')

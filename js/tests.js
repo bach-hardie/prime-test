@@ -76,3 +76,20 @@ describe("buildTable", function() {
     return expect(buildTable(primes).replace(/\s/g, "")).toEqual(table.replace(/\s/g, ""));
   });
 });
+
+describe("makeTable", function() {
+  it("should take input, get those primes, and make an html table", function() {
+    var i, n, results;
+    results = [];
+    for (n = i = 1; i <= 10; n = ++i) {
+      results.push(expect(makeTable(n.toString())).toEqual(buildTable(firstNPrimes(n))));
+    }
+    return results;
+  });
+  return it("should return a formatted error message for invalid inputs", function() {
+    expect(makeTable('0')).toEqual('<h1>Error: please input integer between 1 and 10</h1>');
+    expect(makeTable('-10')).toEqual('<h1>Error: please input integer between 1 and 10</h1>');
+    expect(makeTable('5.75')).toEqual('<h1>Error: please input integer between 1 and 10</h1>');
+    return expect(makeTable('five')).toEqual('<h1>Error: please input integer between 1 and 10</h1>');
+  });
+});
