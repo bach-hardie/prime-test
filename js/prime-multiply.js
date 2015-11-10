@@ -65,12 +65,12 @@ firstNPrimes = function(n) {
   } else {
     est = 0;
     x = 1;
-    est_fn = function(x) {
+    est_fn = function() {
       est = Math.pow(10, x) / Math.log(Math.pow(10, x));
       return x += 1;
     };
     while (est < n) {
-      est_fn(x);
+      est_fn();
     }
     primes = getPrimes(Math.pow(10, x));
     return primes.slice(0, +(n - 1) + 1 || 9e9);
