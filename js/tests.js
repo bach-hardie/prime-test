@@ -33,3 +33,32 @@ describe("getPrimes", function() {
     return expect(fn).toThrow();
   });
 });
+
+describe("firstNPrimes", function() {
+  it("should return the first N primes for N<=10", function() {
+    var i, n, primes, results;
+    primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29];
+    results = [];
+    for (n = i = 1; i <= 10; n = ++i) {
+      results.push((function(n) {
+        return expect(firstNPrimes(n)).toEqual(primes.slice(0, +(n - 1) + 1 || 9e9));
+      })(n));
+    }
+    return results;
+  });
+  return it("should return an exception if the input is not a positive integer", function() {
+    var testFloat, testNegative, testZero;
+    testZero = function() {
+      return firstNPrimes(0);
+    };
+    expect(testZero).toThrow();
+    testNegative = function() {
+      return firstNPrimes(-10);
+    };
+    expect(testNegative).toThrow();
+    testFloat = function() {
+      return firstNPrimes(2.5);
+    };
+    return expect(testFloat).toThrow();
+  });
+});

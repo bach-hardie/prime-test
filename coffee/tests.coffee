@@ -32,3 +32,17 @@ describe "getPrimes", () ->
   it "should return an exception if the input is not an integer", () ->
     fn = () -> getPrimes(5.75)
     expect(fn).toThrow()
+
+describe "firstNPrimes", () ->
+  it "should return the first N primes for N<=10", () ->
+    primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+    for n in [1..10]
+      do (n) ->
+        expect(firstNPrimes(n)).toEqual(primes[0..(n-1)])
+  it "should return an exception if the input is not a positive integer", () ->
+    testZero = () -> firstNPrimes(0)
+    expect(testZero).toThrow()
+    testNegative = () -> firstNPrimes(-10)
+    expect(testNegative).toThrow()
+    testFloat = () -> firstNPrimes(2.5)
+    expect(testFloat).toThrow()
