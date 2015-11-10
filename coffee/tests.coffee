@@ -1,17 +1,17 @@
 describe "getPrimes", () ->
   it "should return empty when the input is 1", () ->
     expect(getPrimes(1)).toBe([])
-  it "should return a list of all primes lower than 100", () ->
-    expect(getPrimes(100).toBe([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, \
+  it "should return a list of all primes up to 97", () ->
+    expect(getPrimes(97).toBe([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, \
      43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]))
-  it "should return a list of all primes lower than 500", () ->
+  it "should return a list of all primes up to 500", () ->
     expect(getPrimes(500).toBe([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, \
      43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, \
      131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, \
      223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, \
      313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, \
      421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499]))
-  it "should return a list of all primes lower than 1000", () ->
+  it "should return a list of all primes up to 1000", () ->
     expect(getPrimes(1000).toBe(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, \
     43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, \
     131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, \
@@ -28,4 +28,4 @@ describe "getPrimes", () ->
   it "should return an exception if the input is negative", () ->
     expect(getPrimes(-10).toThrow())
   it "should return an exception if the input is not an integer", () ->
-    expect(getPrimes(5.75).toThrow())    
+    expect(getPrimes(5.75).toThrow())
