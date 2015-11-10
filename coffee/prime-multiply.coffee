@@ -23,5 +23,5 @@ getPrimes = (n) ->
             array[j] = false
 
   # Get all keys not sieved out.
-  primes = (p for p in [0..(n - 1)] when array[p])
+  primes = (p for p in [2..(n - 1)] when array[p])
   return primes
