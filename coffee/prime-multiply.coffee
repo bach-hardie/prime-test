@@ -69,7 +69,7 @@ buildTable = (primes) ->
 
 makeTable = (str) ->
   # First off some input checking
-  if parseInt(str) is NaN or parseFloat(str) % 1 isnt 0 or parseInt(str) < 1
+  if parseInt(str) is NaN or parseFloat(str) % 1 isnt 0 or parseInt(str) < 1 or parseInt(str) > 10
     return '<h1>Error: please input integer between 1 and 10</h1>'
 
   n = parseInt str

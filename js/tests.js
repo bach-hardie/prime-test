@@ -90,6 +90,7 @@ describe("makeTable", function() {
     expect(makeTable('0')).toEqual('<h1>Error: please input integer between 1 and 10</h1>');
     expect(makeTable('-10')).toEqual('<h1>Error: please input integer between 1 and 10</h1>');
     expect(makeTable('5.75')).toEqual('<h1>Error: please input integer between 1 and 10</h1>');
-    return expect(makeTable('five')).toEqual('<h1>Error: please input integer between 1 and 10</h1>');
+    expect(makeTable('five')).toEqual('<h1>Error: please input integer between 1 and 10</h1>');
+    return expect(makeTable('100')).toEqual('<h1>Error: please input integer between 1 and 10</h1>');
   });
 });

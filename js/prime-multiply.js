@@ -108,7 +108,7 @@ buildTable = function(primes) {
 
 makeTable = function(str) {
   var n, primes;
-  if (parseInt(str) === NaN || parseFloat(str) % 1 !== 0 || parseInt(str) < 1) {
+  if (parseInt(str) === NaN || parseFloat(str) % 1 !== 0 || parseInt(str) < 1 || parseInt(str) > 10) {
     return '<h1>Error: please input integer between 1 and 10</h1>';
   }
   n = parseInt(str);
