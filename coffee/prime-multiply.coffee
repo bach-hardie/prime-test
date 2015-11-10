@@ -51,3 +51,18 @@ firstNPrimes = (n) ->
     est_fn() while est < n
     primes = getPrimes(10**x)
     return primes[0..(n - 1)]
+
+buildTable = (primes) ->
+  rows = []
+  rows.push([''].concat(primes)) # First row
+  for i in primes
+    do (i) ->
+      arr = [i]
+      arr.push(i*j) for j in primes
+      rows.push(arr)
+  html = '<table>'
+  for row in rows
+    do (row) ->
+      html += '<tr><td>' + row.join('</td><td>') + '</td></tr>'
+  html += '</table>'
+  return html

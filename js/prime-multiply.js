@@ -1,4 +1,4 @@
-var firstNPrimes, getPrimes;
+var buildTable, firstNPrimes, getPrimes;
 
 getPrimes = function(n) {
   var array, fn, i, k, p, primes, ref, sqrt_limit, x;
@@ -75,4 +75,33 @@ firstNPrimes = function(n) {
     primes = getPrimes(Math.pow(10, x));
     return primes.slice(0, +(n - 1) + 1 || 9e9);
   }
+};
+
+buildTable = function(primes) {
+  var fn, fn1, html, i, k, l, len, len1, row, rows;
+  rows = [];
+  rows.push([''].concat(primes));
+  fn = function(i) {
+    var arr, j, l, len1;
+    arr = [i];
+    for (l = 0, len1 = primes.length; l < len1; l++) {
+      j = primes[l];
+      arr.push(i * j);
+    }
+    return rows.push(arr);
+  };
+  for (k = 0, len = primes.length; k < len; k++) {
+    i = primes[k];
+    fn(i);
+  }
+  html = '<table>';
+  fn1 = function(row) {
+    return html += '<tr><td>' + row.join('</td><td>') + '</td></tr>';
+  };
+  for (l = 0, len1 = rows.length; l < len1; l++) {
+    row = rows[l];
+    fn1(row);
+  }
+  html += '</table>';
+  return html;
 };
