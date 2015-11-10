@@ -25,3 +25,29 @@ getPrimes = (n) ->
   # Get all keys not sieved out.
   primes = (p for p in [2..n] when array[p])
   return primes
+
+firstNPrimes = (n) ->
+  # First off some input checking
+  if n isnt parseInt(n)
+    throw new TypeError "Input not an integer"
+  if n < 1
+    throw new RangeError "Input not a positive integer"
+
+  # We have to figure out how many numbers we have to sieve to get N primes
+
+  # For N < 17 there's no rule, so for small N (N < 25) we'll just sieve 100
+  # It is known that there are 25 primes smaller than 100
+  if n < 25
+    primes = getPrimes(100)
+    return primes[0..(n - 1)]
+
+  # For larger N we can rely on the Prime Number Theorem pi(x) > x/ln(x)
+  else
+    est = 0
+    x = 1
+    est_fn = (x) ->
+      est = 10**x / Math.log(10**x)
+      x += 1
+    est_fn(x) while est < n
+    primes = getPrimes(10**x)
+    return primes[0..(n - 1)]

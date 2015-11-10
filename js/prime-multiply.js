@@ -1,4 +1,4 @@
-var getPrimes;
+var firstNPrimes, getPrimes;
 
 getPrimes = function(n) {
   var array, fn, i, k, p, primes, ref, sqrt_limit, x;
@@ -49,4 +49,30 @@ getPrimes = function(n) {
     return results;
   })();
   return primes;
+};
+
+firstNPrimes = function(n) {
+  var est, est_fn, primes, x;
+  if (n !== parseInt(n)) {
+    throw new TypeError("Input not an integer");
+  }
+  if (n < 1) {
+    throw new RangeError("Input not a positive integer");
+  }
+  if (n < 25) {
+    primes = getPrimes(100);
+    return primes.slice(0, +(n - 1) + 1 || 9e9);
+  } else {
+    est = 0;
+    x = 1;
+    est_fn = function(x) {
+      est = Math.pow(10, x) / Math.log(Math.pow(10, x));
+      return x += 1;
+    };
+    while (est < n) {
+      est_fn(x);
+    }
+    primes = getPrimes(Math.pow(10, x));
+    return primes.slice(0, +(n - 1) + 1 || 9e9);
+  }
 };
