@@ -55,3 +55,23 @@ describe "firstNPrimes", () ->
     expect(testNegative).toThrow()
     testFloat = () -> firstNPrimes(2.5)
     expect(testFloat).toThrow()
+
+describe "buildTable", () ->
+  it "should build a multiplication table given a list of primes", () ->
+    primes = [2, 3, 5]
+    table = \
+      "<table>
+        <tr>
+          <td></td><td>2</td><td>3</td><td>5</td>
+        </tr>
+        <tr>
+          <td>2</td><td>4</td><td>6</td><td>10</td>
+        </tr>
+        <tr>
+          <td>3</td><td>6</td><td>9</td><td>15</td>
+        </tr>
+        <tr>
+          <td>5</td><td>10</td><td>15</td><td>25</td>
+        </tr>
+      </table>"
+    expect(buildTable(primes).replace(/\s/g, "")).toEqual(table.replace(/\s/g, "") )
