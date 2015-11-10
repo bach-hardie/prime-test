@@ -1,6 +1,6 @@
 getPrimes = (n) ->
   # First off some input checking
-  if n is parseInt(n)
+  if n isnt parseInt(n)
     throw new TypeError "Input not an integer"
   if n < 1
     throw new RangeError "Input not a positive integer"

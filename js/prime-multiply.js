@@ -2,7 +2,7 @@ var getPrimes;
 
 getPrimes = function(n) {
   var array, fn, i, k, p, primes, ref, sqrt_limit, x;
-  if (n === parseInt(n)) {
+  if (n !== parseInt(n)) {
     throw new TypeError("Input not an integer");
   }
   if (n < 1) {
