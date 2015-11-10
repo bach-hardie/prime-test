@@ -66,3 +66,12 @@ buildTable = (primes) ->
       html += '<tr><td>' + row.join('</td><td>') + '</td></tr>'
   html += '</table>'
   return html
+
+makeTable = (str) ->
+  # First off some input checking
+  if parseInt(str) is NaN or parseFloat(str) % 1 isnt 0 or parseInt(str) < 1
+    return '<h1>Error: please input integer between 1 and 10</h1>'
+
+  n = parseInt str
+  primes = firstNPrimes n
+  return buildTable primes

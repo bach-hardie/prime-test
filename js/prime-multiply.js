@@ -1,4 +1,4 @@
-var buildTable, firstNPrimes, getPrimes;
+var buildTable, firstNPrimes, getPrimes, makeTable;
 
 getPrimes = function(n) {
   var array, fn, i, k, p, primes, ref, sqrt_limit, x;
@@ -104,4 +104,14 @@ buildTable = function(primes) {
   }
   html += '</table>';
   return html;
+};
+
+makeTable = function(str) {
+  var n, primes;
+  if (parseInt(str) === NaN || parseFloat(str) % 1 !== 0 || parseInt(str) < 1) {
+    return '<h1>Error: please input integer between 1 and 10</h1>';
+  }
+  n = parseInt(str);
+  primes = firstNPrimes(n);
+  return buildTable(primes);
 };
