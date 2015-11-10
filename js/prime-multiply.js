@@ -41,7 +41,7 @@ getPrimes = function(n) {
   primes = (function() {
     var l, ref1, results;
     results = [];
-    for (p = l = 2, ref1 = n - 1; 2 <= ref1 ? l <= ref1 : l >= ref1; p = 2 <= ref1 ? ++l : --l) {
+    for (p = l = 2, ref1 = n; 2 <= ref1 ? l <= ref1 : l >= ref1; p = 2 <= ref1 ? ++l : --l) {
       if (array[p]) {
         results.push(p);
       }
