@@ -45,9 +45,9 @@ firstNPrimes = (n) ->
   else
     est = 0
     x = 1
-    est_fn = (x) ->
+    est_fn = () ->
       est = 10**x / Math.log(10**x)
       x += 1
-    est_fn(x) while est < n
+    est_fn() while est < n
     primes = getPrimes(10**x)
     return primes[0..(n - 1)]
